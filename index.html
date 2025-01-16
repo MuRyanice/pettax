@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cat Tax Certificate Generator | 猫税确认单生成器</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Pay your cat tax easily! A viral tool loved by Xiaohongshu and TikTok influencers. Generate your personalized Cat Tax Certificate. Upload your cat photo and get your official cat tax payment confirmation. Free and easy to use! | 小红书/抖音爆火的猫税生成器！生成您的专属猫税确认单，上传可爱猫咪照片，获取官方猫税缴纳证明。免费好用！">
+    <meta name="keywords" content="pay cat tax, cat tax payment, cat tax generator, xiaohongshu cat tax, tiktok cat tax, viral cat tax, cat tax certificate, cat photo, pet tax, cat meme, 小红书猫税, 抖音猫税, 猫税生成器, 猫税确认单, 猫咪照片, 宠物税">
+    <meta name="author" content="Cat Tax Certificate Generator">
+    
+    <!-- Open Graph Meta Tags (for social media) -->
+    <meta property="og:title" content="Pay Cat Tax - Certificate Generator | 猫税确认单生成器">
+    <meta property="og:description" content="Viral on Xiaohongshu & TikTok! Generate your personalized Cat Tax Certificate. Upload your cat photo and get your official confirmation! | 小红书/抖音爆火！生成您的专属猫税确认单，上传可爱猫咪照片！">
+    <meta property="og:image" content="https://paycattax.fun/images/og-image.png">
+    <meta property="og:url" content="https://paycattax.fun">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Pay Cat Tax - Certificate Generator | 猫税确认单生成器">
+    <meta name="twitter:description" content="Viral on Xiaohongshu & TikTok! Pay your cat tax and get your official certificate. Free and easy to use!">
+    <meta name="twitter:image" content="https://paycattax.fun/images/og-image.png">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://paycattax.fun">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen p-2">
+    <!-- 语言切换按钮 -->
+    <div class="absolute top-2 right-4 z-10">
+        <select id="languageSelect" 
+                class="text-xs bg-white/80 backdrop-blur border border-gray-200 rounded-md px-2 py-1 
+                       focus:outline-none focus:ring-1 focus:ring-blue-400 cursor-pointer 
+                       hover:bg-white transition-colors shadow-sm">
+            <option value="en">EN</option>
+            <option value="zh">中</option>
+        </select>
+    </div>
+
+    <div class="max-w-2xl mx-auto bg-white p-4 rounded-lg shadow-lg">
+        <!-- 标题 -->
+        <h1 class="text-xl md:text-2xl font-bold text-center mb-2 md:mb-4 text-gray-800">
+            <span id="title-en">🐱 Cat Tax Certificate Generator</span>
+            <span id="title-zh" class="hidden">🐱 猫税确认单生成器</span>
+        </h1>
+        
+        <div class="space-y-2 md:space-y-4">
+            <!-- 上传按钮 -->
+            <div class="flex flex-col items-center mb-2 md:mb-4">
+                <input type="file" 
+                       id="imageInput" 
+                       accept="image/*" 
+                       class="hidden" 
+                       onChange="handleImageUpload(event)">
+                <label for="imageInput" 
+                       class="bg-blue-500 text-white px-3 md:px-4 py-1.5 md:py-2 text-sm rounded-lg cursor-pointer hover:bg-blue-600 transition duration-200 flex items-center shadow-md">
+                    <svg class="w-3 h-3 md:w-4 md:h-4 mr-1 md:mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                    </svg>
+                    <span id="upload-en">Upload Cat Photo</span>
+                    <span id="upload-zh" class="hidden">上传猫咪照片</span>
+                </label>
+            </div>
+
+            <!-- 预览区域 -->
+            <div class="relative bg-gray-50 rounded-lg overflow-hidden shadow-md">
+                <canvas id="canvas" class="w-full h-auto max-h-[70vh] md:max-h-[80vh] object-contain"></canvas>
+            </div>
+            
+            <!-- 下载按钮 -->
+            <div class="flex justify-center mt-2 md:mt-4">
+                <button id="downloadBtn" 
+                        class="bg-green-500 text-white px-4 md:px-6 py-1.5 md:py-2 text-xs md:text-sm rounded-lg hover:bg-green-600 disabled:bg-gray-300 disabled:cursor-not-allowed transition duration-200 flex items-center shadow-md"
+                        disabled>
+                    <svg class="w-3 h-3 md:w-4 md:h-4 mr-1 md:mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                    </svg>
+                    <span id="download-en">Download Certificate</span>
+                    <span id="download-zh" class="hidden">下载确认单</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 页脚 -->
+    <footer class="text-center mt-2 md:mt-4 text-gray-500 text-xs">
+        <p id="footer-en">Upload your lovely cat photo to generate a personalized Cat Tax Certificate 🐱</p>
+        <p id="footer-zh" class="hidden">上传您可爱的猫咪照片，生成专属猫税确认单 🐱</p>
+    </footer>
+
+    <script src="js/template-image.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html> 
