@@ -1,0 +1,21 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1200" height="630" fill="#4F46E5"/>
+    <rect x="32" y="32" width="1136" height="566" rx="16" fill="white" fill-opacity="0.1"/>
+    
+    <!-- Logo -->
+    <g transform="translate(96, 215) scale(0.25)">
+        <rect width="512" height="512" rx="128" fill="white"/>
+        <path d="M256 96C180 96 128 176 128 256C128 336 180 416 256 416C332 416 384 336 384 256C384 176 332 96 256 96ZM220 176C231.046 176 240 184.954 240 196C240 207.046 231.046 216 220 216C208.954 216 200 207.046 200 196C200 184.954 208.954 176 220 176ZM292 176C303.046 176 312 184.954 312 196C312 207.046 303.046 216 292 216C280.954 216 272 207.046 272 196C272 184.954 280.954 176 292 176ZM184 276C184 248 216 224 256 224C296 224 328 248 328 276C328 304 296 328 256 328C216 328 184 304 184 276Z" fill="#4F46E5"/>
+    </g>
+    
+    <!-- Text -->
+    <text x="320" y="280" fill="white" font-family="system-ui" font-size="64" font-weight="bold">
+        Cat Tax Certificate Generator
+    </text>
+    <text x="320" y="350" fill="white" fill-opacity="0.9" font-family="system-ui" font-size="36">
+        Generate your personalized Cat Tax Certificate
+    </text>
+    <text x="320" y="400" fill="white" fill-opacity="0.9" font-family="system-ui" font-size="36">
+        猫税确认单生成器 | 生成您的专属猫税确认单
+    </text>
+</svg> 
